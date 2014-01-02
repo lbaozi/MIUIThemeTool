@@ -7,20 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.attribute.BasicFileAttributeView;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.nio.file.attribute.FileTime;
-import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-
-import javax.swing.text.StyledEditorKit.ItalicAction;
 
 public class ZipFileTools {
 	
