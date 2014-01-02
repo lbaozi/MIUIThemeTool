@@ -90,11 +90,11 @@ public class ZipFileTools {
 				in.close();
 				out.close();
 				
-				/*由于MIUI 主题包中仍然包含ZIP文件 所以需要判断是否为ZIP文件 如果是则继续进行解压
+				//由于MIUI 主题包中仍然包含ZIP文件 所以需要判断是否为ZIP文件 如果是则继续进行解压
 				if(isZip(outPath)){
 					new File(outPath).renameTo(new File(outPath+".zip"));
 					unZip(outPath+".zip",1);
-				}*/
+				}
 				
 			}
 		} catch (IOException e) {
@@ -139,7 +139,7 @@ public class ZipFileTools {
 	 */
 	public void zipMIUI(String zipFilePath,String sourcePath){
 		ZipOutputStream out;
-		//MIUI 主题包 根目录下除了以下文件外 都需要压缩后 在进行压缩
+		//MIUI 主题包 根目录下除了以下文件外 都需要压缩后 再进行压缩
 		String spFileName = "preview,wallpaper,description.xml";
 		try {
 			out = new ZipOutputStream(new FileOutputStream(zipFilePath));
