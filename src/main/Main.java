@@ -40,7 +40,7 @@ public class Main {
 		File[] fileList = wallPaperDir.listFiles();
 		
 		for(int i=0;i<fileList.length;i++){
-			imageTool.replace(fileList[i].getPath());
+			//imageTool.replace(fileList[i].getPath());
 		}
 		System.out.println("*****修改壁纸信息完成*****");
 		
