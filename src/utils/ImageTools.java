@@ -1,10 +1,13 @@
 package utils;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
+import javax.imageio.ImageIO;
 
 import org.apache.commons.imaging.ImageReadException;
 import org.apache.commons.imaging.ImageWriteException;
@@ -27,11 +30,24 @@ public class ImageTools {
 		try {
 			File sourceFile = new File(sourceFilePath);
 			if(sourceFile.exists()){
+			    //获取源文件路径
 				sourceFilePath = sourceFile.getAbsolutePath();
+				//获得 / 的lastIndex 便于分隔
 				int lastIndex = sourceFilePath.lastIndexOf("/");
 				String filePath = "";
+				//得到文件所在的目录
 				if(lastIndex != -1) filePath= sourceFilePath.substring(0,lastIndex);
+				//将文件转换为jpg格式,防止出现非JPG图片导致的写入文件信息失败的情况
+		        BufferedImage img = ImageIO.read(sourceFile);
+		        File outImageFile = new File(filePath,"jpg_"+sourceFile.getName());
+		        ImageIO.write(img, "jpg", outImageFile);
+		        //删除源文件
+		        sourceFile.delete();
+		        //重命名新生成的JPG文件
+		        outImageFile.renameTo(sourceFile);
+		        
 				File outFile = new File(filePath,"out_"+sourceFile.getName());
+				//修改文件信息
 				changeExifMetadata(sourceFile,outFile);
 				sourceFile.delete();
 				outFile.renameTo(sourceFile);
