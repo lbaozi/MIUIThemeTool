@@ -40,7 +40,7 @@ public class DealTheme implements ActionListener{
         
         resultArea.append("*****开始修改主题信息*****\n");
         XmlTools xmlTools = new XmlTools(unZipFilePath+"/description.xml");
-        Map<String,String> map = new HashMap<>();
+        Map<String,String> map = new HashMap<String,String>();
         map.put("designer", "LHY");
         map.put("author", "LHY");
         xmlTools.update(map);
