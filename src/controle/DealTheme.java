@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import utils.FileUtil;
 import utils.ImageTools;
 import utils.XmlTools;
 import utils.ZipFileTools;
@@ -84,6 +85,8 @@ public class DealTheme implements ActionListener{
         
         resultArea.append("开始重新打包\n");
         zipFileTool.zipMIUI(savePath, unZipFilePath);
+        //压缩完成后 删除解压出来的文件
+        FileUtil.delete(unZipFilePath);
         resultArea.append("重新打包完成\n");
         resultArea.append("重新生成的主题文件为:"+savePath);
     }

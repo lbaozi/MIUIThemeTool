@@ -189,7 +189,6 @@ public class ZipFileTools {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("******压缩完成*****");
 	}
 	
 	/**
